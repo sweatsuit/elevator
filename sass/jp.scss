@@ -1,0 +1,112 @@
+body {
+	font-family:Arial, Helvetica, sans-serif;
+}
+#wrapper {
+	background: #CCC;
+	border: 3px solid #000;
+	border-radius: 4px;
+	color: #000;
+	height: 550px; 
+	margin: 20px;
+	overflow: hidden;
+	position: relative;
+	width: 352px; 
+}
+
+.display {
+	background: #000000;
+	color: #ffffff;
+	height: 230px;
+	left: 26px;
+	top: 26px;
+	overflow: hidden;
+	position: relative;
+	width: 300px;
+	vertical-align: middle;
+}
+
+ul.floors {
+	position: absolute;
+	top: 0;
+	z-index: 50;
+	li {
+		height: 230px;
+		width: 430px;
+		&.floor-1 {
+			background-color: #000;
+		}
+		&.floor-2 {
+			background-color: rgb(160, 167, 218);
+		}
+		&.floor-3 {
+			background-color: rgb(255, 162, 0);
+		}
+		&.floor-4 {
+			background-color: rgb(108, 198, 255);
+		}
+	}
+}
+
+.floor-indicator {
+	color: #ffffff;
+	font-size: 110px;
+	height: 110px;
+	left: 50px;
+	line-height: 140px;
+	position: relative;
+	top: 48px;
+	z-index: 100;
+}
+.indicator-panel {
+	float: right;
+	position: relative;
+	top: -63px;
+	margin-right: 50px;
+	z-index: 100;
+}
+.indicator {
+	height: 60px;
+	width: 60px;
+}
+.up-indicator{
+	margin-bottom: 15px;
+	background: #006400;
+	&.on {
+		background: #fff;
+	}
+}
+.down-indicator {
+	background: #FF0000;
+	&.on {
+		background: #fff;
+	}
+}
+.btn-panel {
+	position: relative;
+	margin-top: 80px;
+}
+
+.btn {
+	background: #fff;
+	border: 4px solid #000;	
+	border-radius: 60px;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	height: 60px;
+	font-size: 40px;
+	line-height: 60px;
+	margin-bottom: 40px;
+	margin-left: 70px;
+	text-align: center;
+	vertical-align: middle;
+	width: 60px;
+	&:nth-child(3),
+	&:nth-child(4) {
+		margin-bottom: 0;
+	}
+}
+.btn-on {
+	background: orange;	
+}
+
