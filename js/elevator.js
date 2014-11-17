@@ -1,15 +1,19 @@
-
+// set up floor vars
 lis = $('.floors').find('li'),
 liHeight = 230,
 lisLength = lis.length;
 totalLisHeight = liHeight * lisLength;
 
+
+// initially push floors off screen
 $('.floors').css('margin-top', -(totalLisHeight-liHeight))
 
 var elevateMeLater = new $.Deferred();
+// ?
 elevateMeLater.resolve();
 $(".btn").click(function(event) {
     var floorNum = $(this).text();
+    // ?
     var clicked = event.target.id;
     clicked="#"+clicked;
     $(this).addClass( "btn-on" );
@@ -22,40 +26,40 @@ $(".btn").click(function(event) {
 });
 function elevateFunction(clicked,floorNum,onfloor) {    
     var delay = 2000;
-    var floored=floorNum;
-    if (onfloor === floored) {	
+    if (onfloor === floorNum) {	
         buttonoff(clicked);
         elevateMeLater.resolve();
     }
-    else if(floored > onfloor) {
+    else if(floorNum > onfloor) {
         $( ".up-indicator" ).addClass( "on" );
         var upElevator = function(){
             
             $(".floor-indicator").text(onfloor);
             $(".floors").animate({top: ((liHeight * onfloor)-liHeight)})
-            if (onfloor == floored){
+            if (onfloor == floorNum){
                 $( ".up-indicator" ).removeClass( "on" );
                 buttonoff(clicked);
                 $(".floor-indicator").text(onfloor);
                 elevateMeLater.resolve();
+                console.log(onfloor, floorNum);
             }
-            if(onfloor++ < floored){
+            if(onfloor++ < floorNum){
                 setTimeout(upElevator, delay);
             }
         }
         upElevator();
-    } else if (onfloor > floored ) {
+    } else if (onfloor > floorNum ) {
         $( ".down-indicator" ).addClass( "on" );
         var downElevator = function(){
             $(".floor-indicator").text(onfloor);
             $(".floors").animate({top: ((liHeight * onfloor)-liHeight)})
-            if (onfloor == floored){
+            if (onfloor == floorNum){
                 $( ".down-indicator" ).removeClass( "on" );	
                 buttonoff(clicked);
                 $("#onfloor").text(onfloor);
                 elevateMeLater.resolve();
             }
-            if(onfloor-- > floored){
+            if(onfloor-- > floorNum){
                 setTimeout(downElevator, delay);
             }
         }
